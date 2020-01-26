@@ -4,6 +4,11 @@ import math
 
 def pension(fechaInicio, fechaNacimiento, insalubre, sexo):
 
+	if((fechaInicio-fechaNacimiento).days<0):
+		print("La fecha de inicio de trabajo debe ser posterior a la \
+			fecha de nacimiento")
+		return False
+
 	#Calculamos fecha actual
 	fecha=date.today()
 	#Se calcula las semanas que ha trabajado
@@ -46,13 +51,18 @@ def pension(fechaInicio, fechaNacimiento, insalubre, sexo):
 if __name__ == '__main__':
 
 
-
+	anoInicio,mesInicio,diaInicio=0,0,0
+	anoNacimiento,mesNacimiento,diaNacimiento=0,0,0 
 
 
 
 	#Se solicita al usuario la fecha de inicio de trabajo
+	
+
 	anoInicio= int(input("\nIntroduzca el ano de inicio de trabajo en formato AAAA\n"))
+	
 	mesInicio= int(input("\nIntroduzca el mes de inicio de trabajo en formato MM\n"))
+	
 	diaInicio= int(input("\nIntroduzca el dia de inicio de trabajo en formato DD\n"))
 	
 	#Creamos el objeto date correspondiente a la fecha de inicio de trabajo
