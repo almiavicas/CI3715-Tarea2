@@ -4,6 +4,11 @@ import math
 
 def pension(fechaInicio, fechaNacimiento, insalubre, sexo):
 
+	if((fechaInicio-fechaNacimiento).days<0):
+		print("La fecha de inicio de trabajo debe ser posterior a la \
+			fecha de nacimiento")
+		return False
+
 	#Calculamos fecha actual
 	fecha=date.today()
 	#Se calcula las semanas que ha trabajado
@@ -43,67 +48,71 @@ def pension(fechaInicio, fechaNacimiento, insalubre, sexo):
 
 	
 
+if __name__ == '__main__':
+
+
+	anoInicio,mesInicio,diaInicio=0,0,0
+	anoNacimiento,mesNacimiento,diaNacimiento=0,0,0 
 
 
 
-
-
-
-
-
-#Se solicita al usuario la fecha de inicio de trabajo
-anoInicio= int(input("\nIntroduzca el ano de inicio de trabajo en formato AAAA\n"))
-mesInicio= int(input("\nIntroduzca el mes de inicio de trabajo en formato MM\n"))
-diaInicio= int(input("\nIntroduzca el dia de inicio de trabajo en formato DD\n"))
-
-#Creamos el objeto date correspondiente a la fecha de inicio de trabajo
-
-fechaInicio=date(anoInicio,mesInicio,diaInicio)
-
-
-#Se solicita al usuario la fecha de nacimiento
-
-anoNacimiento= int(input("\nIntroduzca su ano de nacimiento\n"))
-mesNacimiento= int(input("\nIntroduzca su mes de nacimiento\n"))
-diaNacimiento= int(input("\nIntroduzca su dia de nacimiento\n"))
-
-#Creamos el objeto date correspondiente a la fecha de nacimiento
-fechaNacimiento=date(anoNacimiento,mesNacimiento,diaNacimiento)
-
-
-#Se solicita al usuario su sexo
-
-cualSexo=""
-
-while(cualSexo!="M" and cualSexo!="F"):
-	cualSexo= input("\nIntroduzca M para masculino o F para femenino\n")
+	#Se solicita al usuario la fecha de inicio de trabajo
 	
-	if(cualSexo=="M"):
-		sexo=False
+
+	anoInicio= int(input("\nIntroduzca el ano de inicio de trabajo en formato AAAA\n"))
 	
-	elif(cualSexo=="F"):
-		sexo=True
-	else:
-		print("\nPor favor introduzca un valor valido\n")
-
-
-fueInsalubre=-1
-#Si trabajo en condicion insalubre
-while(fueInsalubre != 0 and fueInsalubre!= 1):
-	fueInsalubre= int(input("\nIntroduzca 1 si trabajo en condiciones insalubre, 0 en caso contrario\n"))
+	mesInicio= int(input("\nIntroduzca el mes de inicio de trabajo en formato MM\n"))
 	
-	if(fueInsalubre==0):
-		instalubre=False
+	diaInicio= int(input("\nIntroduzca el dia de inicio de trabajo en formato DD\n"))
 	
-	elif(fueInsalubre==1):
-		insalubre=True
-
-	else:
-		print("\nPor favor introduzca un valor valido\n")
-
-
-#Finalmente, llamamos a la funcion pension
-
-
-
-pension(fechaInicio,fechaNacimiento,insalubre,sexo)
+	#Creamos el objeto date correspondiente a la fecha de inicio de trabajo
+	
+	fechaInicio=date(anoInicio,mesInicio,diaInicio)
+	
+	
+	#Se solicita al usuario la fecha de nacimiento
+	
+	anoNacimiento= int(input("\nIntroduzca su ano de nacimiento\n"))
+	mesNacimiento= int(input("\nIntroduzca su mes de nacimiento\n"))
+	diaNacimiento= int(input("\nIntroduzca su dia de nacimiento\n"))
+	
+	#Creamos el objeto date correspondiente a la fecha de nacimiento
+	fechaNacimiento=date(anoNacimiento,mesNacimiento,diaNacimiento)
+	
+	
+	#Se solicita al usuario su sexo
+	
+	cualSexo=""
+	
+	while(cualSexo!="M" and cualSexo!="F"):
+		cualSexo= input("\nIntroduzca M para masculino o F para femenino\n")
+		
+		if(cualSexo=="M"):
+			sexo=False
+		
+		elif(cualSexo=="F"):
+			sexo=True
+		else:
+			print("\nPor favor introduzca un valor valido\n")
+	
+	
+	fueInsalubre=-1
+	#Si trabajo en condicion insalubre
+	while(fueInsalubre != 0 and fueInsalubre!= 1):
+		fueInsalubre= int(input("\nIntroduzca 1 si trabajo en condiciones insalubre, 0 en caso contrario\n"))
+		
+		if(fueInsalubre==0):
+			instalubre=False
+		
+		elif(fueInsalubre==1):
+			insalubre=True
+	
+		else:
+			print("\nPor favor introduzca un valor valido\n")
+	
+	
+	#Finalmente, llamamos a la funcion pension
+	
+	
+	
+	pension(fechaInicio,fechaNacimiento,insalubre,sexo)	
