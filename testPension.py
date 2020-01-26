@@ -10,7 +10,7 @@ class TestPension(unittest.TestCase):
         day = date.today().day
         workDate = date(year, month, day)
         birthDate = date(year - 20, month, day)
-        self.assertTrue(workDate, birthDate, False, False)
+        self.assertTrue(pension(workDate, birthDate, False, False))
 
 
     def test_male_invalid_worker(self):
@@ -19,7 +19,7 @@ class TestPension(unittest.TestCase):
         day = date.today().day
         workDate = date(year, month, day)
         birthDate = date(year - 20, month, day)
-        self.assertFalse(workDate, birthDate, False, False)
+        self.assertFalse(pension(workDate, birthDate, False, False))
 
 
     def test_female_valid_worker(self):
@@ -28,7 +28,7 @@ class TestPension(unittest.TestCase):
         day = date.today().day
         workDate = date(year, month, day)
         birthDate = date(year - 18, month, day)
-        self.assertTrue(workDate, birthDate, False, True)
+        self.assertTrue(pension(workDate, birthDate, False, True))
 
 
     # def test_female_invalid_worker(self):
