@@ -81,7 +81,7 @@ class TestPension(unittest.TestCase):
         month = date.today().month
         day = date.today().day
         workDate = date(year, month, day)
-        birthDate = date(date.today() - 49, month, day)
+        birthDate = date(date.today().year - 49, month, day)
         self.assertFalse(pension(workDate, birthDate, True, True))
 
 if __name__ == '__main__':
